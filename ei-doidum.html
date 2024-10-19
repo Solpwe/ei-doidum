@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site com Senha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.redd.it/8px8re2bo3l81.gif'); /* Imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com opacidade */
+            padding: 40px; /* Aumenta o padding para deixar a caixa maior */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 500px; /* Aumenta a largura da caixa */
+            max-width: 90%; /* Largura máxima */
+            overflow: auto; /* Permite que o conteúdo que ultrapassa a altura seja rolável */
+            max-height: 80vh; /* Limita a altura da caixa */
+        }
+
+        input[type="password"] {
+            padding: 10px; /* Reduz o padding da caixa de senha */
+            margin: 10px 0;
+            width: 90%; /* A caixa de senha ocupa 80% da largura da caixa */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9; /* Opacidade da caixa de senha */
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9; /* Opacidade do botão */
+        }
+
+        button:hover {
+            background-color: #45a049;
+            opacity: 1; /* Botão totalmente opaco ao passar o mouse */
+        }
+
+        #carta {
+            display: none;
+            text-align: left; /* Alinha o texto à esquerda */
+            width: 100%; /* A carta ocupa 100% da largura da caixa */
+        }
+
+        /* Estilo para o texto da carta */
+        .carta-texto {
+            margin-top: 10px;
+            line-height: 1.5; /* Aumenta o espaço entre linhas para melhor leitura */
+            font-size: 18px; /* Aumenta o tamanho da fonte da carta */
+            padding: 20px; /* Adiciona padding ao texto da carta */
+        }
+
+        /* Estilo para a caixinha do canto inferior direito */
+        .caixa-link {
+            position: fixed; /* Fica fixo na tela */
+            bottom: 20px; /* Distância do fundo */
+            right: 20px; /* Distância da direita */
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com opacidade */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: none; /* Começa oculta */
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://drive.google.com/uc?id=1KApgCKBqvyhJEl4s0X6Pnuox0mrggRzF" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <div class="container">
+        <div id="senha-form">
+            <h2>Digite a senha</h2>
+            <input type="password" id="senha" placeholder="Senha">
+            <button onclick="verificarSenha()">Entrar</button>
+            <p id="erro" style="color: red; display: none;">Senha incorreta. Tente novamente.</p>
+        </div>
+
+        <div id="carta" class="carta-texto">
+            <h2>Carta para um Zébocó</h2>
+            <p>Querido Rodrigo,</p>
+            <p>Eu escrevi essa “carta” (na verdade, é porque não caberia no pacote de lembrancinha kkkkkkkk) para lhe dizer algumas coisas que nunca tive a oportunidade ou coragem de falar. No segundo ano, você foi uma das pessoas mais importantes para mim. Sua presença me ajudou a me afastar de algumas pessoas horríveis da nossa sala.</p>
+            <p>Eu sofri muito com o que diziam pelas minhas costas, e muitas vezes me sentia usada e deixada de lado quando não servia mais para nada. Mas você, de certa forma, me salvou dessas pessoas cruéis e também de mim mesma. Com você, aprendi o verdadeiro significado da amizade e seu valor. Você me deu amigos de verdade, e sou extremamente grata por isso. Amei te conhecer, e sinto muita saudade da nossa amizade. Percebi que conversar com você era fácil e tudo se tornava mais leve, mas, apesar disso, eu não estava nada bem naquela época.</p>
+            <p>Nos aproximamos rapidamente, mas também me afastei de você com a mesma facilidade. Eu percebi que meus sentimentos por você iam além da amizade, mas sabia que nada poderia ou iria acontecer, porque nunca me senti boa o suficiente para alguém tão incrível quanto você (aqui talvez eu tenha exagerado um pouquinho, comecei a me arrepender de elevar seu narcisismo, kkkkkkk). Ainda assim, fiquei muito feliz por ter você como amigo. No entanto, eu sentia muito ciúme de você, e foi por isso que me afastei, para não me machucar mais por gostar de você.</p>
+            <p>Lembra daquele dia em que saímos com nossos amigos e, depois que eles foram embora, ficamos na escadaria do shopping? Meio que "confessei" o que estava sentindo, mas nunca soube se você entendeu. Na verdade, nem me lembro exatamente do que eu disse ou do que você respondeu. Só sei que, a partir dali, me afastei mais. Quando saí da escola, fiquei com medo de ser esquecida ou substituída. E, de certa forma, foi assim que me senti. Acabei saindo do grupo amigos e trigo. Mesmo sentindo muita falta de vocês, não tive coragem de voltar a falar depois de me afastar. Quando você me mandou mensagem depois de tanto tempo, chorei de saudade de todos. E depois disso, nossa história seguiu...</p>
+            <p>Eu sei que não somos mais tão próximos, mas quero que saiba que eu amo muito você. Você é um amigo que se importa com os outros e que tem um coração e uma alma radiantes. Fico muito feliz em ser sua amiga e espero que nunca mude quem você é. Lembre-se de que você é importante para mim e para todos ao seu redor. Se algum dia você não estiver bem, estarei aqui se precisar de mim.</p>
+            <p>Um grande beijo, te gosto muito, e feliz aniversário!</p>
+            <p>Com carinho,<br>Sara</p>
+            <p>P.S.: A grafite vermelha é para você se lembrar de mim, já que meu cabelo é vermelho. 😼</p>
+        </div>
+
+        <!-- Caixinha com link -->
+        <div id="caixa-link" class="caixa-link">
+            <p><a href="https://open.spotify.com/intl-pt/track/1LPGwuFgIzbJoShfDdw7MY?si=dd8bd5302f944823" target="_blank">musga</a></p>
+        </div>
+    </div>
+
+    <script>
+        function verificarSenha() {
+            var senha = document.getElementById("senha").value;
+            var erro = document.getElementById("erro");
+            var caixaLink = document.getElementById("caixa-link");
+
+            if (senha === "fruittella") {
+                document.getElementById("senha-form").style.display = "none";
+                document.getElementById("carta").style.display = "block";
+                caixaLink.style.display = "block"; // Exibe a caixinha após inserir a senha corretamente
+            } else {
+                erro.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
